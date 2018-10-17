@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd"
+	logicalFilePath="changesets/20181016-102000-Table-Permission.xml">
+	<changeSet author="nribeka" id="20181016-090100">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="permission" />
+			</not>
+		</preConditions>
+		<createTable tableName="permission">
+			<column name="id" type="int" autoIncrement="true">
+				<constraints nullable="false" primaryKey="true"
+					primaryKeyName="permission_pk" />
+			</column>
+			<column name="permission_name" type="varchar(200)">
+				<constraints nullable="false" />
+			</column>
+			<column name="permission_description" type="varchar(500)">
+				<constraints nullable="false" />
+			</column>
+            <column name="uuid" type="char(38)">
+                <constraints nullable="false" />
+            </column>
+		</createTable>
+		<addUniqueConstraint columnNames="permission_name" tableName="permission"/>
+	</changeSet>
+</databaseChangeLog>
