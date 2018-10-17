@@ -1,4 +1,4 @@
-package com.meh.stuff.location.db.exception;
+package com.meh.stuff.auth.db.exception;
 
 public class EntityNotFoundException extends Exception {
 }

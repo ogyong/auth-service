@@ -1,11 +1,11 @@
-package com.meh.stuff.location.service.impl;
+package com.meh.stuff.auth.service.impl;
 
 import org.springframework.stereotype.Service;
 
-import com.meh.stuff.location.db.entity.User;
-import com.meh.stuff.location.db.exception.EntityNotFoundException;
-import com.meh.stuff.location.db.repository.UserRepository;
-import com.meh.stuff.location.service.UserService;
+import com.meh.stuff.auth.db.entity.User;
+import com.meh.stuff.auth.db.exception.EntityNotFoundException;
+import com.meh.stuff.auth.db.repository.UserRepository;
+import com.meh.stuff.auth.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
