@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd"
+	logicalFilePath="changesets/20181015-232500-Database-Connection-Check.xml">
+	<changeSet author="nribeka" id="20181015-232500"
+		runOnChange="true">
+		<sql>
+			SELECT 420;
+		</sql>
+	</changeSet>
+</databaseChangeLog>

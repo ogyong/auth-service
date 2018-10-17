@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd"
+	logicalFilePath="changesets/20181016-102300-Table-Role-Role.xml">
+	<changeSet author="nribeka" id="20181016-102300">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="role_role" />
+			</not>
+		</preConditions>
+        <createTable tableName="role_role">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"
+                    primaryKeyName="role_role_pk" />
+            </column>
+            <column name="role_id" type="int">
+                <constraints nullable="false" />
+            </column>
+            <column name="parent_role_id" type="int">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+        <addForeignKeyConstraint
+            constraintName="fk_role_role_to_role" referencedTableName="role"
+            baseColumnNames="role_id" baseTableName="role_role"
+            referencedColumnNames="id" />
+        <addForeignKeyConstraint
+            constraintName="fk_role_role_to_parent_role" referencedTableName="role"
+            baseColumnNames="parent_role_id" baseTableName="role_role"
+            referencedColumnNames="id" />
+	</changeSet>
+</databaseChangeLog>

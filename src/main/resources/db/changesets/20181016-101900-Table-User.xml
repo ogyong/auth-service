@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd"
+	logicalFilePath="changesets/20181016-101900-Table-User.xml">
+	<changeSet author="nribeka" id="20181016-101900">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="the_user" />
+			</not>
+		</preConditions>
+		<createTable tableName="the_user">
+			<column name="id" type="int" autoIncrement="true">
+				<constraints nullable="false" primaryKey="true"
+					primaryKeyName="user_pk" />
+			</column>
+			<column name="internal_id" type="varchar(200)">
+				<constraints nullable="false" />
+			</column>
+			<column name="username" type="varchar(200)">
+				<constraints nullable="false" />
+			</column>
+			<column name="password" type="varchar(200)">
+				<constraints nullable="false" />
+			</column>
+			<column name="salt" type="varchar(200)">
+				<constraints nullable="false" />
+			</column>
+			<column name="creator" type="int">
+				<constraints nullable="false" />
+			</column>
+			<column name="date_created" type="datetime">
+				<constraints nullable="false" />
+			</column>
+			<column name="modified_by" type="int">
+				<constraints nullable="true" />
+			</column>
+			<column name="date_modified" type="datetime">
+				<constraints nullable="true" />
+			</column>
+			<column name="retired" type="boolean"
+				defaultValueBoolean="false" />
+			<column name="retired_by" type="int">
+				<constraints nullable="true" />
+			</column>
+			<column name="date_retired" type="datetime">
+				<constraints nullable="true" />
+			</column>
+			<column name="retired_reason" type="varchar(500)">
+				<constraints nullable="true" />
+			</column>
+			<column name="uuid" type="char(38)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		<addUniqueConstraint columnNames="internal_id"
+			tableName="the_user" />
+		<addUniqueConstraint columnNames="username"
+			tableName="the_user" />
+		<addForeignKeyConstraint
+			constraintName="fk_the_user_creator" referencedTableName="the_user"
+			baseColumnNames="creator" baseTableName="the_user"
+			referencedColumnNames="id" />
+		<addForeignKeyConstraint
+			constraintName="fk_the_user_modified_by" referencedTableName="the_user"
+			baseColumnNames="modified_by" baseTableName="the_user"
+			referencedColumnNames="id" />
+	</changeSet>
+</databaseChangeLog>

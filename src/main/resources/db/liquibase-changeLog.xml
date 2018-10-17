@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    
+    <include file="changesets/20181015-232500-Database-Connection-Check.xml" relativeToChangelogFile="true"/>
+    <include file="changesets/20181016-101900-Table-User.xml" relativeToChangelogFile="true"/>
+    <include file="changesets/20181016-102000-Table-Permission.xml" relativeToChangelogFile="true"/>
+    <include file="changesets/20181016-102100-Table-Role.xml" relativeToChangelogFile="true"/>
+    <include file="changesets/20181016-102200-Table-Role-Permission.xml" relativeToChangelogFile="true"/>
+    <include file="changesets/20181016-102300-Table-Role-Role.xml" relativeToChangelogFile="true"/>
+    <include file="changesets/20181016-102400-Table-User-Role.xml" relativeToChangelogFile="true"/>
+    
+</databaseChangeLog>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd"
+	logicalFilePath="changesets/20181016-102400-Table-User-Role.xml">
+	<changeSet author="nribeka" id="20181016-102400">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="user_role" />
+			</not>
+		</preConditions>
+        <createTable tableName="user_role">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"
+                    primaryKeyName="role_role_pk" />
+            </column>
+            <column name="role_id" type="int">
+                <constraints nullable="false" />
+            </column>
+            <column name="user_id" type="int">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+        <addForeignKeyConstraint
+            constraintName="fk_user_role_to_role" referencedTableName="role"
+            baseColumnNames="role_id" baseTableName="user_role"
+            referencedColumnNames="id" />
+        <addForeignKeyConstraint
+            constraintName="fk_user_role_to_user" referencedTableName="the_user"
+            baseColumnNames="user_id" baseTableName="user_role"
+            referencedColumnNames="id" />
+	</changeSet>
+</databaseChangeLog>
