@@ -1,4 +1,4 @@
-package com.meh.stuff.location.db.entity;
+package com.meh.stuff.auth.db.entity;
 
 import java.time.OffsetDateTime;
 import java.util.UUID;

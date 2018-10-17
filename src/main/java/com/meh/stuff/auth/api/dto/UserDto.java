@@ -1,6 +1,6 @@
-package com.meh.stuff.location.api.dto;
+package com.meh.stuff.auth.api.dto;
 
-import com.meh.stuff.location.db.entity.User;
+import com.meh.stuff.auth.db.entity.User;
 
 import lombok.Builder;
 import lombok.Data;
