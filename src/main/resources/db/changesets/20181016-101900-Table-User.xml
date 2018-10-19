@@ -22,13 +22,19 @@
 				<constraints nullable="false" />
 			</column>
 			<column name="password" type="varchar(200)">
-				<constraints nullable="false" />
+				<constraints nullable="true" />
 			</column>
 			<column name="salt" type="varchar(200)">
-				<constraints nullable="false" />
+				<constraints nullable="true" />
 			</column>
 			<column name="creator" type="int">
-				<constraints nullable="false" />
+				<!-- 
+				Need to add the origin user.
+				So we need to:
+				* Disable null-able
+				* Validate in the service before inserting it
+			    -->
+				<constraints nullable="true" />
 			</column>
 			<column name="date_created" type="datetime">
 				<constraints nullable="false" />
@@ -63,8 +69,8 @@
 			baseColumnNames="creator" baseTableName="the_user"
 			referencedColumnNames="id" />
 		<addForeignKeyConstraint
-			constraintName="fk_the_user_modified_by" referencedTableName="the_user"
-			baseColumnNames="modified_by" baseTableName="the_user"
-			referencedColumnNames="id" />
+			constraintName="fk_the_user_modified_by"
+			referencedTableName="the_user" baseColumnNames="modified_by"
+			baseTableName="the_user" referencedColumnNames="id" />
 	</changeSet>
 </databaseChangeLog>
